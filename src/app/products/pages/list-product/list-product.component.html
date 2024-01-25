@@ -1,0 +1,12 @@
+<h1>Productos disponibles</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
+
+  <div
+    *ngFor="let product of paginationProduct?.content"
+    class="flex flex-wrap justify-around h-4/5 m-5 border-solid border border-black-500"
+  >
+    <product-card [product]="product"></product-card>
+  </div>
+
+</div>
