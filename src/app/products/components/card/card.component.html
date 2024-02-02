@@ -1,26 +1,18 @@
-<mat-card class="">
+<div class="container">
+  <section class="card">
+    <!-- <div class="item"> -->
+      <h1> {{product.name}} </h1>
+      <p class="price">{{ product.price | currency:'':'symbol-narrow':'1.0' }}</p>
+      <img class="img" [src]="product.imageUrl" alt="">
+      <div class="actions">
+        <button mat-icon-button id="shopping">
+          <mat-icon class="icon">add_shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button id="info">
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
 
-    <mat-card-header>
-
-      <mat-card-title>{{ product.name }}</mat-card-title>
-
-    </mat-card-header>
-    <img mat-card-image [src]="product.imageUrl" [alt]="product.name">
-
-    <mat-card-content class="w-100">
-      <p class="text-xl">
-        {{ product.price | currency:'':'symbol-narrow':'1.0' }}
-      </p>
-    </mat-card-content>
-
-    <mat-card-actions class="flex justify-between">
-      <button mat-raised-button color="primary">
-        <mat-icon>add_shopping_cart</mat-icon>
-      </button>
-      <button mat-raised-button color="primary">
-        <mat-icon>info</mat-icon>
-        info
-      </button>
-    </mat-card-actions>
-
-</mat-card>
+    <!-- </div> -->
+  </section>
+</div>

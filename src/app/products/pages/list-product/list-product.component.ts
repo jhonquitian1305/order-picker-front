@@ -5,7 +5,7 @@ import { PaginationProduct } from '../../interfaces/pagination-product.interface
 @Component({
   selector: 'product-list-product',
   templateUrl: './list-product.component.html',
-  styles: ``
+  styleUrl: './list-product.component.css'
 })
 export class  ListProductComponent implements OnInit {
 

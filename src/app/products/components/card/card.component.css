@@ -1,0 +1,40 @@
+.container{
+  display: flex;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  border: thin solid black;
+  align-items: center;
+  flex: 1 2 100%;
+}
+
+.img{
+  width: 60%;
+  height: 60%;
+}
+
+.actions{
+  display: flex;
+  justify-content: space-evenly;
+  width: 6rem;
+  height: 2rem;
+  color: white;
+  width: inherit;
+}
+
+.actions button{
+  background-color: blue;
+  color: white;
+}
+
+.actions:hover button{
+  cursor: pointer;
+}
+
+.price{
+  align-self: center;
+}
