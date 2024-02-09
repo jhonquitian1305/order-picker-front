@@ -1,0 +1,28 @@
+<div class="container">
+  <section class="product">
+
+    <div class="img">
+      <img mat-card-image [src]="product?.imageUrl">
+    </div>
+
+
+    <section class="info">
+      <div class="items">
+        <h2>{{ product?.name }}</h2>
+
+        <h1>{{ product?.price | currency:'':'symbol-narrow':'1.0' }}</h1>
+
+        <span class="amount">Cantidad disponible: {{ product?.amount }}</span>
+
+        <button mat-button color="primary">
+          <mat-icon>add</mat-icon>
+          Agregar
+        </button>
+      </div>
+    </section>
+
+  </section>
+</div>
+
+
+
