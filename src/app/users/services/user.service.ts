@@ -13,7 +13,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<PaginationUser> {
-    return this.http.get<PaginationUser>(`${this.baseUrl}/users`);
+  getAll(page: number, size: number): Observable<PaginationUser> {
+    return this.http.get<PaginationUser>(`${this.baseUrl}/users?pageNumber=${page}&pageSize=${size}`);
   }
 }
