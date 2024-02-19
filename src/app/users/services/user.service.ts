@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, Subscriber, catchError, of } from 'rxjs';
 import { PaginationUser, User } from '../interfaces/user.interface';
+import { ValidationErrors } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,15 @@ export class UserService {
     return this.http.get<User>(`${this.baseUrl}/users/dni/${value}`).pipe(
       catchError( error => of(undefined))
     )
+  }
+
+  userValidator(value1: string, value2: string | undefined, subscriber: Subscriber<ValidationErrors | null>): void {
+    if(value1 === value2){
+      subscriber.next({ userFound : true});
+      subscriber.complete();
+    }
+
+    subscriber.next(null);
+    subscriber.complete();
   }
 }
