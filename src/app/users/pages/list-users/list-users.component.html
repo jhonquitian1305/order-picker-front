@@ -1,4 +1,10 @@
-<h1>Usuarios registrados</h1>
+<div class="add">
+  <h1>Usuarios registrados</h1>
+  <button [routerLink]="['/users/new']" mat-flat-button color="primary">
+    <span>Agregar usuario</span>
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
 
 <div>
 
@@ -44,11 +50,9 @@
   <mat-paginator
       [length]="length"
       [pageSize]="size"
-      [pageSizeOptions]="[5, 10, 15, 20]"
+      [hidePageSize]="true"
       (page)="changePage($event)"
   >
 
   </mat-paginator>
-
-  {{ length }}
 </div>
