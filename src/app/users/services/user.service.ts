@@ -30,6 +30,10 @@ export class UserService {
     )
   }
 
+  saveOne(user: User): Observable<User>{
+    return this.http.post<User>(`${this.baseUrl}/users`, user);
+  }
+
   userValidator(value1: string, value2: string | undefined, subscriber: Subscriber<ValidationErrors | null>): void {
     if(value1 === value2){
       subscriber.next({ userFound : true});
