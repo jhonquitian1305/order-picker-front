@@ -22,4 +22,10 @@ export class UserService {
       catchError( error => of(undefined))
     )
   }
+
+  getOneByDni(value: string): Observable<User | undefined>{
+    return this.http.get<User>(`${this.baseUrl}/users/dni/${value}`).pipe(
+      catchError( error => of(undefined))
+    )
+  }
 }
