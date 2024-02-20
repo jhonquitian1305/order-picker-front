@@ -1,18 +1,15 @@
 <div class="container">
   <section class="card">
-    <!-- <div class="item"> -->
       <h1> {{product.name}} </h1>
       <p class="price">{{ product.price | currency:'':'symbol-narrow':'1.0' }}</p>
       <img class="img" [src]="product.imageUrl" alt="">
       <div class="actions">
-        <button mat-icon-button id="shopping">
+        <button mat-fab color="primary" id="shopping">
           <mat-icon class="icon">add_shopping_cart</mat-icon>
         </button>
-        <button [routerLink]="['/products/', product.id]" mat-icon-button id="info">
+        <button [routerLink]="['/products/', product.id]" color="primary" mat-fab id="info">
           <mat-icon>info</mat-icon>
         </button>
       </div>
-
-    <!-- </div> -->
   </section>
 </div>

@@ -26,11 +26,6 @@
   width: inherit;
 }
 
-.actions button{
-  background-color: blue;
-  color: white;
-}
-
 .actions:hover button{
   cursor: pointer;
 }
