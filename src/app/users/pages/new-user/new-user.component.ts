@@ -6,6 +6,7 @@ import { DniValidator } from '../../services/dni-validator.service';
 import { User } from '../../interfaces/user.interface';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-user',
@@ -24,6 +25,7 @@ export class NewUserComponent {
     private dniValidator: DniValidator,
     private userService: UserService,
     private router: Router,
+    private toastr: ToastrService,
   ) {}
 
   hide = true;
@@ -54,12 +56,19 @@ export class NewUserComponent {
   }
 
   saveUser(): void{
-    this.currentUser.role = 'USER';
-    this.userService.saveOne(this.currentUser)
-      .subscribe( user => {
-        console.log(user);
-        this.router.navigateByUrl('/users/list')
-      })
 
+    if(this.myForm.invalid) return;
+
+    this.currentUser.role = 'USER';
+    console.log(this.toastr);
+    this.userService.saveOne(this.currentUser)
+      .subscribe( () => {
+        this.toastr.success('El usuario fue creado con éxito', 'Usuario creado con éxito');
+        this.router.navigateByUrl('/users/list');
+      });
+  }
+
+  onCopyAndPaste(event: ClipboardEvent){
+    event.preventDefault();
   }
 }

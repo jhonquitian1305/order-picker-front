@@ -41,6 +41,8 @@
         <input
           placeholder="Ingrese la contraseña"
           formControlName="password"
+          (copy)="onCopyAndPaste($event)"
+          (paste)="onCopyAndPaste($event)"
           matInput
           [type]="hide ? 'password' : 'text'"
           required
@@ -56,6 +58,8 @@
         <input
           formControlName="password2"
           [type]="hide ? 'password' : 'text'"
+          (copy)="onCopyAndPaste($event)"
+          (paste)="onCopyAndPaste($event)"
           matInput
           placeholder="Ingrese de nuevo la contraseña"
         >
