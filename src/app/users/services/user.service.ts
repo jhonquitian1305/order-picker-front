@@ -18,20 +18,33 @@ export class UserService {
     return this.http.get<PaginationUser>(`${this.baseUrl}/users?pageNumber=${page}&pageSize=${size}`);
   }
 
+  getOneById(id: string): Observable<User | undefined>{
+    return this.http.get<User>(`${this.baseUrl}/users/${id}`)
+      .pipe(
+        catchError( error => of(undefined))
+      )
+  }
+
   getOneByEmail(value: string): Observable<User | undefined>{
-    return this.http.get<User>(`${this.baseUrl}/users/email/${value}`).pipe(
-      catchError( error => of(undefined))
-    )
+    return this.http.get<User>(`${this.baseUrl}/users/email/${value}`)
+      .pipe(
+        catchError( error => of(undefined))
+      )
   }
 
   getOneByDni(value: string): Observable<User | undefined>{
-    return this.http.get<User>(`${this.baseUrl}/users/dni/${value}`).pipe(
-      catchError( error => of(undefined))
-    )
+    return this.http.get<User>(`${this.baseUrl}/users/dni/${value}`)
+      .pipe(
+        catchError( error => of(undefined))
+      )
   }
 
   saveOne(user: User): Observable<User>{
     return this.http.post<User>(`${this.baseUrl}/users`, user);
+  }
+
+  updateOne(user: User): Observable<User>{
+    return this.http.put<User>(`${this.baseUrl}/users/${user.id}`, user);
   }
 
   userValidator(value1: string, value2: string | undefined, subscriber: Subscriber<ValidationErrors | null>): void {

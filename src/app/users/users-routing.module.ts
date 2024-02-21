@@ -13,6 +13,10 @@ const routes: Routes = [
     component: NewUserComponent
   },
   {
+    path: 'edit/:id',
+    component: NewUserComponent
+  },
+  {
     path: '',
     redirectTo: 'list',
     pathMatch: 'full'

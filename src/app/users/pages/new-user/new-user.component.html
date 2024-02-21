@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-content>
-    <form [formGroup]="myForm" class="form" (ngSubmit)="saveUser()">
+    <form [formGroup]="userForm" class="form" (ngSubmit)="onSubmit()">
       <h1>Registro</h1>
 
       <mat-form-field appearance="outline">
@@ -99,3 +99,4 @@
 
   </mat-card-content>
 </mat-card>
+
