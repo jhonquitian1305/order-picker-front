@@ -1,15 +1,12 @@
-.container{
-  display: flex;
-}
-
 .card{
   display: flex;
   flex-direction: column;
   width: 500px;
   height: 500px;
-  border: thin solid black;
+  border: thin solid rgb(234, 220, 209);
   align-items: center;
   flex: 1 2 100%;
+  margin-top: 1.5rem;
 }
 
 .img{

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-import { PaginationProduct } from '../../interfaces/pagination-product.interface';
+import { Product } from '../../interfaces/product.interface';
 
 @Component({
   selector: 'product-list-product',
@@ -9,13 +9,13 @@ import { PaginationProduct } from '../../interfaces/pagination-product.interface
 })
 export class  ListProductComponent implements OnInit {
 
-  public paginationProduct!: PaginationProduct;
+  public products: Product[] = [];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.getAll()
-      .subscribe( paginationProducts => this.paginationProduct = paginationProducts)
+      .subscribe( paginationProducts => this.products = paginationProducts.content)
   }
 
 }
