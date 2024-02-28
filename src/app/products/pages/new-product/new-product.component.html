@@ -1,0 +1,89 @@
+@if (isLoading) {
+  <div class="loading">
+    <h3>Cargando</h3>
+    <mat-spinner></mat-spinner>
+  </div>
+} @else{
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="productForm" class="form" (ngSubmit)="onSubmit()">
+        <h1>Agregar producto nuevo</h1>
+
+        <mat-form-field class="form-field">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            placeholder="Ingrese el nombre del producto"
+            required
+          >
+          <mat-error>{{ getFieldError('name') }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Precio</mat-label>
+          <span matTextPrefix>$&nbsp;</span>
+          <input
+            matInput
+            type="number"
+            formControlName="price"
+            placeholder="Ingrese el precio del producto"
+            required
+          >
+          <mat-error>{{ getFieldError('price') }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="">
+          <mat-label>Cantidad</mat-label>
+          <input
+            matInput
+            type="number"
+            formControlName="amount"
+            placeholder="Ingrese la cantidad inicial del producto"
+            required
+          >
+          <mat-error>{{ getFieldError('amount') }}</mat-error>
+        </mat-form-field>
+
+        <div class="upload-image">
+          <h3>Adjuntar imagen del producto</h3>
+          <input
+            id="file-input"
+            class="file"
+            (change)="getFile($event)"
+            type="file"
+          >
+          <button
+            mat-raised-button
+            type="button"
+            color="primary"
+            class="upload-button"
+            (click)="chooseFile()"
+          >
+            <mat-icon>upload</mat-icon>
+            Subir Archivo
+          </button>
+
+          @if (preview) {
+            <div>
+              <img [src]="preview" alt="" width="250px">
+            </div>
+          }
+        </div>
+
+        <div class="save">
+          <button (click)="closeDialog()" type="button" mat-raised-button color="warn">
+            <mat-icon>close</mat-icon>
+            Cerrar
+          </button>
+          <button mat-raised-button color="primary">
+            Agregar Producto
+            <mat-icon>save</mat-icon>
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+}
+

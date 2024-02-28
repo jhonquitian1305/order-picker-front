@@ -22,4 +22,12 @@ export class ProductService {
       );
   }
 
+  saveOne(product: Product): Observable<Product>{
+    return this.http.post<Product>(`${this.baseUrl}/products`, product);
+  }
+
+  uploadFile(file: FormData, name: string): Observable<any>{
+    return this.http.post(`${this.baseUrl}/products/upload`, file, { params: { name } });
+  }
+
 }

@@ -1,0 +1,36 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upload-image{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  align-items: flex-start;
+}
+
+.file{
+  display: none;
+}
+
+.upload-button{
+  background-color: yellowgreen;
+}
+
+.save{
+  display: flex;
+  justify-content: space-between;
+}
+
+.loading{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}

@@ -30,6 +30,12 @@ export class ValidatorsService {
 
         case 'userFound':
           return `El ${field} ya se encuentra en uso`;
+
+        case 'min':
+          return `El valor debe ser mínimo ${errors['min'].min}`;
+
+        case 'max':
+          return `El valor debe ser máximo ${errors['max'].max}`;
       }
     }
 

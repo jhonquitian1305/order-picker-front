@@ -1,4 +1,10 @@
-<h1>Productos disponibles</h1>
+<div class="add-product">
+  <h1>Productos disponibles</h1>
+  <button (click)="createProduct()" mat-flat-button color="primary">
+    <span>Nuevo Producto</span>
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
 
 <div class="cards">
     <product-card *ngFor="let product of products" [product]="product"></product-card>
